@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
-function TopicItem({data, handleUpdateTopic}){
-
+function TopicItem({currentstargazer, handleUpdateTopic}){
   return(
-    data.topic.relatedTopics.map((currentstargazer) => (
-      <button 
+      <button
+        data-testid={`currentstargazer.name`}
         className='topic-item'
         css={css`
           color: #5b5b5b;
@@ -25,8 +24,7 @@ function TopicItem({data, handleUpdateTopic}){
         <p>Related Topic: {currentstargazer.name}</p>
         <p>Stargazers No.: {currentstargazer.stargazerCount}</p>
       </button>
-    ))
-  ); 
+  );
 }
 
 export default TopicItem;

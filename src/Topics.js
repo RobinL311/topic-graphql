@@ -44,73 +44,85 @@ function Topics() {
   const currentTopic = data.topic.name;
   const stargazerLists = data !== undefined 
     && data.topic.relatedTopics.length !== 0 
-    ? <TopicItem data={data} handleUpdateTopic={handleUpdateTopic}/> : (
+    ? data.topic.relatedTopics.map((currentstargazer, index) =>(
+      <li key={index} 
+        css={css`
+        list-style-type: none;
+      `}
+      >
+        <TopicItem 
+          currentstargazer={currentstargazer}
+          handleUpdateTopic={handleUpdateTopic}
+        />
+      </li>
+    )) : (
     <h3>No such topics found!</h3>
   );
   
   return (
-    <div
-      css={css`
-      text-align: center;
-    `}
-    >
-      <h2
-        css={css`
-          text-align: center;
-          font-size: 48px;
-          color: #808080;
-        `}
-      >
-        FIND ALL YOUR RELATED TOPICS
-      </h2>
-      <h2
-        css={css`
-          text-align: center;
-          font-size: 56px;
-          color: #005cc5;
-        `}
-      >" {currentTopic} "</h2> 
+    <React.Fragment>
       <div
-        className='current-topic'
         css={css`
-          padding: 32px;
-          background-color: #808080;
-          font-size: 36px;
-          border-radius: 4px;
-          color: white;
-        `}
+        text-align: center;
+      `}
       >
-        <input
-        type='text'
-        placeholder='pls input the topic here!'
-        value={input}
-        onChange={handleChange}
-        css={css`
-          padding: 12px;
-          font-size: 16px;
-          border-radius: 4px;
-        `}
-        />
-        <button 
-          onClick={handleSubmit}
+        <h2
           css={css`
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
+            text-align: center;
+            font-size: 48px;
+            color: #808080;
           `}
         >
-          Go
-        </button></div>
-        
-        <div
-          className='related-topic'
+          FIND ALL YOUR RELATED TOPICS
+        </h2>
+        <h2
           css={css`
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            text-align: center;
+            font-size: 56px;
+            color: #005cc5;
           `}
-        >{stargazerLists}</div>
-    </div>
+        >"{currentTopic}"</h2> 
+        <div
+          css={css`
+            padding: 32px;
+            background-color: #808080;
+            font-size: 36px;
+            border-radius: 4px;
+            color: white;
+          `}
+        >
+          <input
+            type='text'
+            placeholder='pls input the topic here!'
+            value={input}
+            onChange={handleChange}
+            css={css`
+              padding: 12px;
+              font-size: 16px;
+              border-radius: 4px;
+            `}
+          />
+          <button
+            onClick={handleSubmit}
+            css={css`
+              padding: 12px;
+              font-size: 16px;
+              border-radius: 4px;
+            `}
+          >
+            Go
+          </button></div>
+          
+          <ul
+            className='related-topic'
+            css={css`
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+            `}
+          >{stargazerLists}</ul>
+      </div>
+    </React.Fragment>
   );
 };
 
