@@ -19,7 +19,8 @@ Simple static tests with "MockedProvider" privided.
 
 Note:
 Update on Jan.29.2021:
-After a double check, I believe it would be more easy to do an auto one by server side.
+
+After a double check, I believe it would be more easy to do an auto one by server side. If we keep the @apollo/client, maybe we could preare a schema.json to have some old fasion work, but I dont thinnk it's a good approch, since we already have the '.graphql' file.
 
 Update on Jan.28.2021:
 
