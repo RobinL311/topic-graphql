@@ -18,16 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Simple static tests with "MockedProvider" privided.
 
 Note:
-Update on Jan.29.2021:
-
-After a double check, I believe it would be more easy to do an auto one by server side. If we keep the @apollo/client, maybe we could preare a schema.json to have some old fasion work, but I dont thinnk it's a good approch, since we already have the '.graphql' file.
-
 Update on Jan.28.2021:
-
 1. Reafactor TopicItem & Topics
-2. Add tests for "MockedProvider", looks good.
-3. Failed for "AutoMockedProvider". Thinking maybe we could wait more from Apollo Client. For now, for the auto testing part, it might be more easy we could do it when we refactor this project to client/server module.
-4. Since this is a toy project, still kept the "dependencies" I tried in package.json. Just for reference.
+2. Add tests for "MockedProvider".
+3. Since this is a toy project, still kept the "dependencies" I tried in package.json. Just for reference.
 
 ## GraphQL Example
 
